@@ -1,0 +1,97 @@
+const canvas = document.getElementById('fireworks');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+
+function Particle(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.vx = Math.random() * 10 - 5;
+    this.vy = Math.random() * 10 - 5;
+    this.alpha = 1;
+    this.size = Math.random() * 5 + 2;
+}
+
+Particle.prototype.update = function() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.alpha -= 0.02;
+    this.size *= 0.98;
+};
+
+Particle.prototype.draw = function() {
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+};
+
+function createFirework(x, y) {
+    const colors = ['#ff0040', '#ff4081', '#ff80ab', '#ffff00', '#00ffff', '#8000ff'];
+    for (let i = 0; i < 50; i++) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        particles.push(new Particle(x, y, color));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((particle, index) => {
+        particle.update();
+        particle.draw();
+        if (particle.alpha <= 0) {
+            particles.splice(index, 1);
+        }
+    });
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+document.getElementById('messageForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('senderName').value.trim();
+    const msg = document.getElementById('message').value.trim();
+    if (name && msg) {
+        const text = `Tên: ${name}\nLời nhắn: ${msg}`;
+        fetch(`https://api.telegram.org/bot8568502284:AAHrFHaMeOMW8plyPo0hnlpytC7hl37ionw/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: '1111320262',
+                text: text
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert('Tin nhắn đã được gửi thành công!');
+            } else {
+                alert('Lỗi gửi tin nhắn: ' + data.description);
+            }
+        })
+        .catch(error => {
+            alert('Lỗi kết nối: ' + error.message);
+        });
+        this.reset();
+    }
+});
+
+function launchFireworks() {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height / 2;
+    createFirework(x, y);
+    setTimeout(() => createFirework(Math.random() * canvas.width, Math.random() * canvas.height / 2), 200);
+    setTimeout(() => createFirework(Math.random() * canvas.width, Math.random() * canvas.height / 2), 400);
+}
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});

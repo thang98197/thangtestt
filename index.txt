@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Profile - Nguyễn Danh Thắng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="profile">
+        <img src="https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/652895751_3294792100680834_8649421262648831090_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=X0phdv6kmb8Q7kNvwF4ju1C&_nc_oc=AdpWeZqosFGXZXHtVWaDZ3ER7bzXtf9BdOBe7a2Lx-Hyj4lWHz4o8Ab8I3jJ5Ap8j44&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&_nc_gid=l5KlI_8RIBr_IMog2TlYJg&_nc_ss=7a3a8&oh=00_Af3GFeZ0NQKhO5a01Mh9CFYbfgg5PLJuglis2DTB877WlA&oe=69E263ED" alt="Avatar" class="avatar">
+        <h1>Nguyễn Danh Thắng</h1>
+        <p>Leader homi hero</p>
+        <div class="buttons">
+            <button onclick="window.open('https://www.facebook.com/danhthang.nguyen.125', '_blank')">Facebook</button>
+            <button onclick="launchFireworks()">Tặng quà</button>
+        </div>
+    </div>
+    <div class="message-section">
+        <h2>Để lại lời nhắn</h2>
+        <form id="messageForm">
+            <input type="text" id="senderName" placeholder="Tên của bạn" required>
+            <textarea id="message" placeholder="Lời nhắn" required></textarea>
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+    <canvas id="fireworks"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
