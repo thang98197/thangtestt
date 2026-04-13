@@ -6,6 +6,7 @@ A beautiful digital profile webpage for Nguyễn Danh Thắng, Leader homi hero.
 - Profile information with avatar
 - Facebook link button
 - Gift button that triggers fireworks animation
+- Trò chơi Rắn săn mồi tích hợp trên trang
 - Responsive design with glassmorphism effect
 
 ## How to View
