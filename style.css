@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: white;
+}
+
+.profile {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 2.5em;
+}
+
+p {
+    margin: 10px 0 30px;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+.message-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.message-section h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+#messageForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+input, textarea {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#messageForm button {
+    width: 100px;
+}
+
+.game-section {
+    margin-top: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 500px;
+    width: 100%;
+}
+
+.game-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+#snakeCanvas {
+    background: #111;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 20px;
+    width: min(100%, 400px);
+    height: auto;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game-controls span {
+    font-size: 1.1em;
+}
+
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
